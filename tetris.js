@@ -237,7 +237,7 @@ function CONTROL(event) {
     p.moveRight();
     dropStart = Date.now();
   }
-  (event.keyCode == 40) {
+  else if(event.keyCode == 40) {
     p.moveDown();
   }
 }
