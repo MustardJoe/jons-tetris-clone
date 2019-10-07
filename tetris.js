@@ -173,6 +173,86 @@ Piece.prototype.lock = function() {
         }
       }
       //line 192 in guide (lots of extra whitespace there)
+      //top of board[0][..] has now row above..
+      for(c = 0; c < COL; c++) {
+        board[0][c] = VACANT;
+      }
+
+      //increment score
+      score += 10;
     }
+  }
+
+  //update for full line re-draw board
+  drawBoard();
+
+  //update score
+  scoreElement.innerHTML = score;
+}
+
+// collision function
+Piece.prototype.collision = function(x, y, piece) {
+  for(r = 0; r < piece.length; r++) {
+    for(c = 0; c < piece.length; c++) {
+      //skip empty square for colision func
+      if(!piece[r][c]) {
+        continue;
+      }
+
+      // new coords after move
+      let newX = this.x + c + x;
+      let newY = this.y + r + y;
+
+      //conditions
+      if(newX < 0 || newX >= COL || newY >= ROW) {
+        return true;
+      }
+
+      if(newY < 0) {
+        continue;
+      }
+
+      //check if piece already in spot
+      if(board[newY][newX] != VACANT) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+//CONTROL the piece (line 237 in guide)
+document.addEventListener("keydown", CONTROL);
+
+function CONTROL(event) {
+  if(event.keyCode == 37) {
+    p.moveLeft();
+    dropStart = Date.now();
+  }
+  else if(event.keyCode == 38) {
+    p.rotate();
+    dropStart = Date.now();
+  }
+  else if(event.keyCode == 39) {
+    p.moveRight();
+    dropStart = Date.now();
+  }
+  (event.keyCode == 40) {
+    p.moveDown();
+  }
+}
+
+//drop piece every 1sec
+let dropStart = Date.now();
+let gameOver = false;
+function drop() {
+  let now = Date.now();
+  let delta = now - dropStart;
+  if(delta > 1000) {
+    p.moveDown();
+    dropStart = Date.now();
+  }
+  if(!gameOver) {
+    requestAnimationFrame(drop);
   }
 }
