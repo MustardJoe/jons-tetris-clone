@@ -256,3 +256,5 @@ function drop() {
     requestAnimationFrame(drop);
   }
 }
+
+drop();
