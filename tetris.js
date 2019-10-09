@@ -47,7 +47,7 @@ const PIECES = [
 //gnerate random pieces
 function randomPiece() {
   let r = randomN = Math.floor(Math.random() * PIECES.length)
-  return new PIECES( PIECES[r][0], PIECES[r][1]);
+  return new Piece( PIECES[r][0], PIECES[r][1]);
 }
 
 let p = randomPiece();
