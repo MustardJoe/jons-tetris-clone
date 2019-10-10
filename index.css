@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
 body {
+  font-family: 'Poppins', sans-serif;
   background-color: honeydew;
+}
+
+#title {
+  margin: 12px;
+  color: darkgreen;
+  font-family: 'Varela Round', sans-serif;
 }
 
 #score {
   display: inline-block;
+  color: darkgreen;
+  font-family: 'Varela Round', sans-serif;
 }
 
 div {
   font-size: 25px;
   font-weight: bold;
-  font-family: mononspace;
+  color: darkgreen;
+  font-family: 'Varela Round', sans-serif;
   text-align: center;
 }
 
