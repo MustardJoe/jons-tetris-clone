@@ -35,13 +35,13 @@ drawBoard();
 
 //picese and their colors
 const PIECES = [
-  [Z, "red"],
+  [Z, "GreenYellow"],
   [S, "green"],
-  [T, "yellow"],
-  [O, "blue"],
-  [L, "purple"],
-  [I, "cyan"],
-  [J, "orange"],
+  [T, "SpringGreen"],
+  [O, "DarkSeaGreen"],
+  [L, "YellowGreen"],
+  [I, "MediumSeaGreen"],
+  [J, "LimeGreen"],
 ];
 
 //gnerate random pieces
